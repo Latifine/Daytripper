@@ -1,0 +1,25 @@
+<body>
+  <!-- ""Carousal""" -->
+  <div class="relative">
+    <div class="hero-img md:mt-12 py-80 bg-cover bg-fixed bg-center bg-no-repeat"></div>
+    <div class="py-20 flex flex-col items-center text-center absolute right-0 top-40 left-0 bottom-0">
+      <h1 class="text-white md:text-7xl text-4xl titleFont drop-shadow-xl py-5">Welcome to Daytripper!</h1>
+      <!-- Buttons -->
+      <div class="grid md:grid-cols-2 grid-cols-1 gap-4 md:text-lg text-base textFont">
+        <button routerLink="/plan" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }"
+          class="text-orange-800 mt-5 bg-red-50 border border-orange-800 hover:bg-orange-800 hover:text-white focus:outline-none focus:ring focus:ring-orange-700 rounded-lg px-16 py-2 block">Start
+          Planning</button>
+        <button routerLink="/explore" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }"
+          class="text-white md:mt-5 redBG hover:bg-orange-800 focus:outline-none focus:ring focus:ring-orange-700 rounded-lg px-16 py-2 block">Explore
+          Trips</button>
+      </div>
+    </div>
+  </div>
+  <!-- Featured cards -->
+  <div class="py-10 flex flex-col items-center">
+    <h1 class="text-4xl">Featured Trips</h1>
+    <div class="grid grid-cols-2 gap-4 text-base">
+      <app-trip-card *ngFor="let trip of featuredTrips" [trip]="trip" [isRegular]="true"></app-trip-card>
+    </div>
+  </div>
+</body>

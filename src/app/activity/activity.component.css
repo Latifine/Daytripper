@@ -1,0 +1,21 @@
+.slide-in-out {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.animation-container {
+overflow: hidden;
+height: 400px;
+z-index: 1;
+}
+.backgrounddiv{
+    z-index: -1;
+}
+
+thead, tbody { display: block; }
+
+tbody {
+    height: 200px;       
+    overflow-y: auto;    
+    overflow-x: hidden;  
+}

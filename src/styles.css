@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* Fonts */
+.titleFont, h1, h2, h3 {
+    font-family: 'Yeseva One', serif !important;
+}
+
+.textFont, p, li {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Background Colors */
+.grayBG{
+    background-color: #F0F0F0; 
+}
+
+.blueBG{
+    background-color: #8BC4C4; 
+}
+
+.greenBG{
+    background-color: #A5D6A7; 
+}
+
+.redBG{
+    background-color: #B63710; 
+}
+
+/* Text Colors */
+.grayText{
+    color: #F0F0F0; 
+}
+
+.blueText{
+    color: #8BC4C4; 
+}
+
+.greenText{
+    color: #A5D6A7; 
+}
+
+.redText{
+    color: #B63710; 
+}

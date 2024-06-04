@@ -1,0 +1,74 @@
+<nav class="blueBG fixed w-full z-20 top-0 left-0 print:hidden">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <!-- Logo -->
+    <a routerLink="/" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" class="flex items-center">
+        <span class="text-white self-center text-3xl font-semibold whitespace-nowrap titleFont">Daytripper</span>
+    </a>
+    <!-- hamburger icon -->
+    <button (click)="toggleMenu()"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:text-gray-300"
+      aria-controls="navbar-sticky" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+    <!-- Login/Signup and/or logout button -->
+    <div class="flex md:order-2 pb-2 print:hidden">
+        @if(isAuthenticated()){
+          <app-logout></app-logout>
+          <a routerLink="/profile" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" class="my-auto ml-1 pt-2">
+            <div class="relative w-10 h-10 overflow-hidden bg-gray-100 hover:bg-gray-200 rounded-full hover:ring-1 ring-gray-100">
+              <img src="{{this.user?.picture}}" alt="profile picture">
+            </div>
+          </a>
+        } @else{
+          <app-login></app-login>
+          <app-signup></app-signup>
+        }    
+    </div>
+    <!-- Home Trips Create button -->
+    <div class="align-middle items-center justify-between hidden w-full md:flex md:w-auto md:order-1 print:hidden"
+      id="navbar-sticky">
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 text-xl font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 blueBG">
+        <!-- Home button -->
+        <li class="m-auto">
+          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            class="block lg:inline-block lg:mt-0 text-white hover:text-orange-800 mr-4">
+            Home
+          </a>
+        </li>
+        <!-- Trips button -->
+        <li class="m-auto">
+          <a routerLink="/explore" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            class="block lg:inline-block lg:mt-0 text-white hover:text-orange-800 mr-4">
+            Trips
+          </a>
+        </li>
+        <!-- Create button -->
+        <li class="m-auto">
+          <a routerLink="/plan" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <button type="button"
+              class="text-white mt-1 redBG hover:bg-orange-800 focus:ring-4 focus:outline-none rounded-md text-lg px-6 py-2 md:mr-1">
+              Create
+            </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="isMenuOpen" class="md:hidden">
+  <!-- Responsive menu content -->
+  <div class="blueBG mt-20">
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+      class="block py-2 px-4 textFont text-base text-white">Home</a>
+    <a routerLink="/explore" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+      class="block py-5 px-4 textFont text-base text-white">Trips</a>
+    <!-- <a routerLink="/plan" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+      class="block py-5 px-4 textFont text-base text-white">Create</a> -->
+  </div>
+</div>

@@ -1,0 +1,6 @@
+/* This is temporary, can be removed when google fonts is further implemented later down the line */
+
+*,
+h1 {
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+}

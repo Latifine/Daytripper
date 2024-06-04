@@ -1,0 +1,5 @@
+.hero-img {
+    /* background-image: url(../../assets/plamtree_bg.jpg); */
+    background-image: url(../../assets/japan-bg.jpg);
+    filter: brightness(50%);
+}

@@ -1,0 +1,33 @@
+<div class="container mx-auto mt-28">
+
+  <h1 class="text-4xl mb-3 text-center">Explore trips</h1> 
+    <div class="mb-2 w-full flex justify-center">           
+      <div class="flex w-3/5 mt-8">  
+        <select id="activity" [value]="-1" [(ngModel)]="activityTypeId" (ngModelChange)="onChange()" class="bg-gray-200 border border-gray-600 text-gray-900 text-sm rounded-s-lg focus:ring-blue-500 focus:border-blue-500 block w-2/5 p-4">
+          <option value="-1">Activity types</option>
+          <option *ngFor="let type of activitytypes" [value]="type.id">{{ type.name}}</option>
+        </select>
+        <div class="w-full">
+          <input type="text" id="default-input" [(ngModel)]="input" (ngModelChange)="onChange()" class="block p-4 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search trips by name or description..." required>
+        </div>
+      </div>
+    </div>
+    <div class="w-full">
+      <div class="w-3/5 sm:w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <app-trip-card *ngFor="let trip of getDisplayedTrips()" [trip]="trip" class="text-base" [isRegular]="true"></app-trip-card>
+      </div>
+      <h1 *ngIf="getDisplayedTrips().length === 0" class="text-center text-3xl mx-auto mt-28">No trips found</h1>
+    </div>
+
+<div class="mt-4 flex justify-center print:hidden">
+  <button *ngFor="
+        let page of getPaginationArray().slice(
+          currentPage > 2 ? currentPage - 3 : 0,
+          currentPage + 2
+        );
+        let i = index
+      " class="mx-1 px-4 py-2 border rounded text-lg hover:bg-orange-800 hover:text-white" [class.redBG]="page === currentPage" [class.text-white]="page === currentPage"
+    (click)="onPageChange(page)">
+    {{ page }}
+  </button>
+</div>
